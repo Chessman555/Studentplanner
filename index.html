@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">✓</div>
+          <span>StudentPlanner</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Sidebar navigation">
+          <button class="nav-item active" type="button">
+            <span class="nav-icon">▦</span>
+            Dashboard
+          </button>
+
+          <button class="nav-item" type="button">
+            <span class="nav-icon">✓</span>
+            My Tasks
+          </button>
+
+          <button class="nav-item" type="button">
+            <span class="nav-icon">◷</span>
+            Study Schedule
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <p>Stay organized.<br />Stay ahead.</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Monday, 29 September</p>
+          </div>
+
+          <button class="add-task-btn" type="button">+ Add Task</button>
+        </header>
+
+        <section class="welcome">
+          <div>
+            <h2>Welcome back! 👋</h2>
+            <p>Here is an overview of your academic tasks.</p>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Academic summary">
+          <div class="stat-card">
+            <div class="stat-icon blue">✓</div>
+            <div>
+              <span>Completed</span>
+              <strong>12</strong>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">!</div>
+            <div>
+              <span>Pending</span>
+              <strong>05</strong>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">◔</div>
+            <div>
+              <span>Focus</span>
+              <strong>4h</strong>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon red">⚑</div>
+            <div>
+              <span>Urgent</span>
+              <strong>02</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="card">
+            <div class="card-header">
+              <h3>Upcoming Tasks</h3>
+              <button class="text-button" type="button">View all</button>
+            </div>
+
+            <div class="task-item">
+              <div class="task-left">
+                <input class="task-check" type="checkbox" />
+                <div class="task-info">
+                  <h4>Biology lab report</h4>
+                  <p>Due tomorrow • 3:00 PM</p>
+                </div>
+              </div>
+              <span class="task-tag tag-blue">Study</span>
+            </div>
+
+            <div class="task-item">
+              <div class="task-left">
+                <input class="task-check" type="checkbox" />
+                <div class="task-info">
+                  <h4>Math revision set</h4>
+                  <p>Due Thursday • 9:00 AM</p>
+                </div>
+              </div>
+              <span class="task-tag tag-yellow">Math</span>
+            </div>
+
+            <div class="task-item">
+              <div class="task-left">
+                <input class="task-check" type="checkbox" />
+                <div class="task-info">
+                  <h4>Essay draft</h4>
+                  <p>Due Friday • 11:30 AM</p>
+                </div>
+              </div>
+              <span class="task-tag tag-purple">Essay</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Study Goals</h3>
+              <button class="text-button" type="button">Edit</button>
+            </div>
+
+            <div class="goal-list">
+              <div class="goal-item">
+                <div>
+                  <strong>Reading</strong>
+                  <span>60 min</span>
+                </div>
+                <div class="progress"><span style="width: 72%"></span></div>
+              </div>
+
+              <div class="goal-item">
+                <div>
+                  <strong>Practice</strong>
+                  <span>45 min</span>
+                </div>
+                <div class="progress"><span style="width: 58%"></span></div>
+              </div>
+
+              <div class="goal-item">
+                <div>
+                  <strong>Review</strong>
+                  <span>30 min</span>
+                </div>
+                <div class="progress"><span style="width: 84%"></span></div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
