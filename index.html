@@ -1,167 +1,400 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Planner</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="logo">
-          <div class="logo-icon">✓</div>
-          <span>StudentPlanner</span>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <nav class="sidebar-nav" aria-label="Sidebar navigation">
-          <button class="nav-item active" type="button">
-            <span class="nav-icon">▦</span>
-            Dashboard
-          </button>
+<title>Student Planner</title>
 
-          <button class="nav-item" type="button">
-            <span class="nav-icon">✓</span>
-            My Tasks
-          </button>
+<link rel="stylesheet" href="style.css">
 
-          <button class="nav-item" type="button">
-            <span class="nav-icon">◷</span>
-            Study Schedule
-          </button>
-        </nav>
+</head>
 
-        <div class="sidebar-bottom">
-          <p>Stay organized.<br />Stay ahead.</p>
-        </div>
-      </aside>
-
-      <main class="main-content">
-        <header class="topbar">
-          <div>
-            <h1>Dashboard</h1>
-            <p>Monday, 29 September</p>
-          </div>
-
-          <button class="add-task-btn" type="button">+ Add Task</button>
-        </header>
-
-        <section class="welcome">
-          <div>
-            <h2>Welcome back! 👋</h2>
-            <p>Here is an overview of your academic tasks.</p>
-          </div>
-        </section>
-
-        <section class="stats-grid" aria-label="Academic summary">
-          <div class="stat-card">
-            <div class="stat-icon blue">✓</div>
-            <div>
-              <span>Completed</span>
-              <strong>12</strong>
-            </div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon orange">!</div>
-            <div>
-              <span>Pending</span>
-              <strong>05</strong>
-            </div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon green">◔</div>
-            <div>
-              <span>Focus</span>
-              <strong>4h</strong>
-            </div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon red">⚑</div>
-            <div>
-              <span>Urgent</span>
-              <strong>02</strong>
-            </div>
-          </div>
-        </section>
-
-        <section class="dashboard-grid">
-          <article class="card">
-            <div class="card-header">
-              <h3>Upcoming Tasks</h3>
-              <button class="text-button" type="button">View all</button>
-            </div>
-
-            <div class="task-item">
-              <div class="task-left">
-                <input class="task-check" type="checkbox" />
-                <div class="task-info">
-                  <h4>Biology lab report</h4>
-                  <p>Due tomorrow • 3:00 PM</p>
-                </div>
-              </div>
-              <span class="task-tag tag-blue">Study</span>
-            </div>
-
-            <div class="task-item">
-              <div class="task-left">
-                <input class="task-check" type="checkbox" />
-                <div class="task-info">
-                  <h4>Math revision set</h4>
-                  <p>Due Thursday • 9:00 AM</p>
-                </div>
-              </div>
-              <span class="task-tag tag-yellow">Math</span>
-            </div>
-
-            <div class="task-item">
-              <div class="task-left">
-                <input class="task-check" type="checkbox" />
-                <div class="task-info">
-                  <h4>Essay draft</h4>
-                  <p>Due Friday • 11:30 AM</p>
-                </div>
-              </div>
-              <span class="task-tag tag-purple">Essay</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>Study Goals</h3>
-              <button class="text-button" type="button">Edit</button>
-            </div>
-
-            <div class="goal-list">
-              <div class="goal-item">
-                <div>
-                  <strong>Reading</strong>
-                  <span>60 min</span>
-                </div>
-                <div class="progress"><span style="width: 72%"></span></div>
-              </div>
-
-              <div class="goal-item">
-                <div>
-                  <strong>Practice</strong>
-                  <span>45 min</span>
-                </div>
-                <div class="progress"><span style="width: 58%"></span></div>
-              </div>
-
-              <div class="goal-item">
-                <div>
-                  <strong>Review</strong>
-                  <span>30 min</span>
-                </div>
-                <div class="progress"><span style="width: 84%"></span></div>
-              </div>
-            </div>
-          </article>
-        </section>
-      </main>
+<body>
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">✓</div>
+        <span>StudentPlanner</span>
     </div>
-  </body>
+
+    <nav>
+        <button class="nav-item active" data-section="dashboard">
+            <span>▦</span>
+            Dashboard
+        </button>
+
+        <button class="nav-item" data-section="tasks">
+            <span>✓</span>
+            My Tasks
+        </button>
+
+        <button class="nav-item" data-section="schedule">
+            <span>◷</span>
+            Study Schedule
+        </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <p>Stay organized.<br>Stay ahead.</p>
+    </div>
+</aside>
+
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="topbar">
+        <div>
+            <h1 id="pageTitle">Dashboard</h1>
+            <p id="currentDate"></p>
+        </div>
+
+        <button class="add-task-btn" id="openTaskModal">
+            + Add Task
+        </button>
+    </header>
+
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section active-section">
+
+        <div class="welcome">
+            <div>
+                <h2>Welcome back! 👋</h2>
+                <p>Here is an overview of your academic tasks.</p>
+            </div>
+        </div>
+
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">✓</div>
+                <div>
+                    <span>Total Tasks</span>
+                    <strong id="totalTasks">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">!</div>
+                <div>
+                    <span>Pending</span>
+                    <strong id="pendingTasks">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedTasks">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon red">!</div>
+                <div>
+                    <span>Due Soon</span>
+                    <strong id="dueSoonTasks">0</strong>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Dashboard Columns -->
+        <div class="dashboard-grid">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Upcoming Tasks</h3>
+                    <button class="text-button" id="viewAllTasks">
+                        View all
+                    </button>
+                </div>
+
+                <div id="upcomingTasks" class="task-list">
+                    <!-- Tasks inserted by JavaScript -->
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Today's Schedule</h3>
+                </div>
+
+                <div id="todaySchedule" class="schedule-list">
+                    <!-- Schedule inserted by JavaScript -->
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Tasks Section -->
+    <section id="tasks" class="section">
+
+        <div class="section-heading">
+            <div>
+                <h2>My Tasks</h2>
+                <p>Manage your assignments and deadlines.</p>
+            </div>
+
+            <button class="add-task-btn" id="openTaskModal2">
+                + Add Task
+            </button>
+        </div>
+
+
+        <div class="task-controls">
+
+            <input
+                type="text"
+                id="searchTasks"
+                placeholder="Search tasks..."
+            >
+
+            <select id="filterPriority">
+                <option value="all">All Priorities</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+
+            <select id="filterStatus">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+            </select>
+
+        </div>
+
+
+        <div class="card">
+            <div id="allTasks" class="task-list large-list">
+                <!-- Tasks inserted by JavaScript -->
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="section">
+
+        <div class="section-heading">
+            <div>
+                <h2>Study Schedule</h2>
+                <p>Plan your study sessions and academic activities.</p>
+            </div>
+
+            <button class="add-task-btn" id="openScheduleModal">
+                + Add Study Session
+            </button>
+        </div>
+
+
+        <div class="card">
+            <div id="fullSchedule" class="full-schedule">
+                <!-- Schedule inserted by JavaScript -->
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Add Task Modal -->
+<div class="modal-overlay" id="taskModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2>Add New Task</h2>
+
+            <button class="close-modal" id="closeTaskModal">
+                ×
+            </button>
+        </div>
+
+
+        <form id="taskForm">
+
+            <label>
+                Task Name
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="e.g. Complete Database Assignment"
+                    required
+                >
+            </label>
+
+
+            <label>
+                Course
+                <input
+                    type="text"
+                    id="taskCourse"
+                    placeholder="e.g. Computer Science"
+                    required
+                >
+            </label>
+
+
+            <div class="form-row">
+
+                <label>
+                    Due Date
+                    <input
+                        type="date"
+                        id="taskDate"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Priority
+                    <select id="taskPriority">
+                        <option value="high">High</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </label>
+
+            </div>
+
+
+            <label>
+                Notes
+                <textarea
+                    id="taskNotes"
+                    placeholder="Additional notes..."
+                ></textarea>
+            </label>
+
+
+            <div class="modal-actions">
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelTask"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    Save Task
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- Study Session Modal -->
+<div class="modal-overlay" id="scheduleModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2>Add Study Session</h2>
+
+            <button class="close-modal" id="closeScheduleModal">
+                ×
+            </button>
+        </div>
+
+
+        <form id="scheduleForm">
+
+            <label>
+                Subject
+                <input
+                    type="text"
+                    id="scheduleSubject"
+                    placeholder="e.g. Data Structures"
+                    required
+                >
+            </label>
+
+
+            <div class="form-row">
+
+                <label>
+                    Date
+                    <input
+                        type="date"
+                        id="scheduleDate"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Time
+                    <input
+                        type="time"
+                        id="scheduleTime"
+                        required
+                    >
+                </label>
+
+            </div>
+
+
+            <label>
+                Duration
+                <select id="scheduleDuration">
+                    <option value="30 minutes">30 minutes</option>
+                    <option value="1 hour" selected>1 hour</option>
+                    <option value="1.5 hours">1.5 hours</option>
+                    <option value="2 hours">2 hours</option>
+                    <option value="3 hours">3 hours</option>
+                </select>
+            </label>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelSchedule"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    Save Session
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
 </html>
