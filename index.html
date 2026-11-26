@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>StudyNest • Student Success Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<div id="authGate" class="auth-gate">
+  <div class="auth-art"><div class="brand white"><span class="brand-icon">✦</span> StudyNest</div><div class="auth-art-body"><span class="eyebrow">YOUR ACADEMIC WORKSPACE</span><h1>Make your next study day your <em>best one.</em></h1><p>A home for assignments, planning, focus, grades, and better learning.</p><div class="art-card"><div class="art-card-head">✦ This week at a glance <span>● ● ●</span></div><div class="art-check">✓ <span>Review class notes</span><b>Done</b></div><div class="art-check">○ <span>Complete math homework</span><b>In progress</b></div><small>Progress toward your goals</small><div class="art-track"><span></span></div></div></div><small>Plan with purpose. Study with confidence.</small></div>
+  <div class="auth-panel"><div class="auth-box"><div class="mobile-brand brand"><span class="brand-icon">✦</span> StudyNest</div><div class="auth-symbol">✦</div><h2 id="authTitle">Welcome to your study space</h2><p class="muted" id="authDescription">Choose how you want to get started.</p><div id="authChoices"><button class="btn primary wide" id="guestStart">Continue in free guest mode →</button><button class="btn outline wide" id="firebaseShowLogin">Sign in with cloud account</button><p class="hint">Guest mode works immediately, without an API key. Your work stays in this browser until you export it.</p></div><form id="cloudAuthForm" class="stack hidden"><label>Email address<input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters"></label><div class="row spread"><label class="checkbox-line"><input id="showPassword" type="checkbox"> Show password</label><button type="button" class="link-button" id="authReset">Forgot password?</button></div><p id="authMessage" class="form-message" role="status"></p><button class="btn primary wide" type="submit" id="cloudAuthSubmit">Sign in</button><button class="btn outline wide" type="button" id="authRegister">Create new account</button><button type="button" class="link-button centered" id="authBack">← Back to guest mode</button></form><p class="hint">Cloud login requires optional Firebase setup. Never save real passwords in GitHub or browser storage.</p></div></div>
+</div>
+<div id="appShell" class="app-shell hidden">
+  <aside class="sidebar"><div class="brand"><span class="brand-icon">✦</span> StudyNest</div><span class="side-caption">STUDENT WORKSPACE</span><nav id="nav" aria-label="Main navigation">
+    <button class="nav-link active" data-page="dashboard">◫ <span>Dashboard</span></button>
+    <button class="nav-link" data-page="tasks">☑ <span>Assignments</span></button>
+    <button class="nav-link" data-page="calendar">▦ <span>Calendar</span></button>
+    <button class="nav-link" data-page="schedule">◷ <span>Study schedule</span></button>
+    <button class="nav-link" data-page="grades">◈ <span>Grades & GPA</span></button>
+    <button class="nav-link" data-page="focus">◉ <span>Focus timer</span></button>
+    <button class="nav-link" data-page="notes">▤ <span>Notes & flashcards</span></button>
+    <button class="nav-link" data-page="resources">⌕ <span>Resource finder</span></button>
+    <button class="nav-link" data-page="analytics">▥ <span>Analytics</span></button>
+    <button class="nav-link" data-page="settings">⚙ <span>Settings</span></button>
+  </nav><div class="side-bottom"><div class="side-user"><span class="avatar" id="userAvatar">S</span><div><strong id="sidebarName">Student</strong><small id="storageMode">Guest · Local storage</small></div></div><button class="btn outline wide" id="logoutButton">↪ Sign out</button></div></aside>
+  <div class="main-area"><header class="topbar"><div><div class="crumb">YOUR STUDY SPACE / <span id="crumbPage">DASHBOARD</span></div><h1 id="pageTitle">Dashboard</h1><p id="dateLabel" class="muted"></p></div><div class="top-actions"><span class="mode-pill" id="modePill">● Local mode</span><button class="btn primary" id="quickAdd">+ Add assignment</button></div></header><main id="view"></main><footer class="footer">Made for learning · StudyNest · Built for GitHub Pages</footer></div>
+</div>
+<div class="modal-shade hidden" id="modalShade"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="row spread"><h2 id="modalTitle">Add</h2><button class="icon-button" id="modalClose" aria-label="Close dialog">×</button></div><div id="modalBody"></div></div></div>
+<div id="toast" class="toast hidden" role="status"></div>
+</body>
+</html>
